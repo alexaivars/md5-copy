@@ -1,0 +1,71 @@
+{
+  "name": "md5-copy",
+  "version": "1.0.0",
+  "description": "Recursivly copy files and append a md5 hash to there name.",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "$(npm bin)/eslint .",
+    "test": "$(npm bin)/mocha test --recursive"
+  },
+  "engines": {
+    "node": ">=6.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexaivars/md5-copy.git"
+  },
+  "keywords": [
+    "md5",
+    "node",
+    "fs",
+    "copy",
+    "file"
+  ],
+  "author": "alex aivars",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexaivars/md5-copy/issues"
+  },
+  "homepage": "https://github.com/alexaivars/md5-copy#readme",
+  "dependencies": {
+    "fs-extra": "^0.30.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "mocha": "^3.0.2"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "eqeqeq": 2,
+      "no-unreachable": 1,
+      "no-unused-vars": 1,
+      "no-use-before-define": 1,
+      "no-sync": 2,
+      "no-const-assign": 2,
+      "no-extra-parens": 1,
+      "no-unexpected-multiline": 1,
+      "no-spaced-func": 2,
+      "arrow-spacing": 2,
+      "linebreak-style": 2,
+      "object-curly-spacing": [
+        2,
+        "always"
+      ],
+      "comma-spacing": [
+        2,
+        {
+          "before": false,
+          "after": true
+        }
+      ],
+      "prefer-const": 1
+    }
+  }
+}
