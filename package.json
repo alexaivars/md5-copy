@@ -1,6 +1,6 @@
 {
   "name": "md5-copy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursivly copy files and append a md5 hash to there name.",
   "main": "index.js",
   "scripts": {

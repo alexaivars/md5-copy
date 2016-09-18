@@ -28,15 +28,18 @@ const hash = (obj, done) => {
   if(!obj.stats.isFile()) {
     return done(null, obj);
   }
+ 
+  const rs = fs.createReadStream(obj.path);
+  const hash = crypto.createHash('md5').setEncoding('hex');
   
-  return fs.readFile(obj.path, 'utf8', (err, data) => {
-    const hash = crypto
-                  .createHash('md5')
-                  .update(data, 'utf8')
-                  .digest('hex');
-    return done(null, Object.freeze(Object.assign({}, obj, { hash })));
+  rs.on('end', () => {
+    hash.end();
+    return done(null, Object.freeze(Object.assign({}, obj, { hash: hash.read() })));
   });
 
+  rs.pipe(hash);
+  
+  return hash;
 };  
 
 const copy = (obj, done) => {
