@@ -62,13 +62,13 @@ const rename = (obj, done) => {
     if(base.includes(obj.hash)) {
       return done(null, obj);
     }
-
     const dest = path.format({
         root,
         dir,
-        ext: `.${obj.hash}${ext}`,
-        name
+        ext,
+        name: name.includes('.')?`${name.substr(0, name.indexOf('.'))}.${obj.hash}${name.substr(name.indexOf('.'))}`:`${name}.${obj.hash}`
     });
+  
     return done(null, Object.freeze(Object.assign({}, obj, { dest })));
   } else {
     return done(null, obj);
